@@ -1,0 +1,23 @@
+#This file is automatically rewritten by ANT.  Hand-edits may be lost.
+#Wed, 12 Feb 2014 15:21:20 +0100
+name=MyCppTddPlugin
+version.major=2
+version.minor=5
+version.revision=0
+version.date=20140212
+autoPublish=true
+requires=ANTForPlugins, PerlForPlugins
+provider=University of Pisa
+provider.url=http\://someUrl/updates
+license=GNU Affero General Public License v.3
+license.url=http\://www.gnu.org/licenses/agpl.html
+copyright=(c) 2014 University of Pisa - Department of Information Engineering
+info.url=http\://someUrlForWiki/MyCppTddPlugin
+history.url=http\://someUrlForWiki/MyCppTddPlugin/ChangeHistory
+executable=execute.pl
+interpreter.prefix=${PerlForPlugins.perl.exe}
+author=Filippo Lauria (filippo.lauria1@gmail.com)
+authorUid=lauria
+description=This is the Cpp one-step grading script. It includes ANT-based execution and CxxTest Framework processing of instructor-written tests.
+timeoutMultiplier=2
+timeoutInternalPadding=400
