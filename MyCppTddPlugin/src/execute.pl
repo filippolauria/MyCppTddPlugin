@@ -1653,20 +1653,19 @@ $beautifier->beautifyCwd( $cfg, ['runAllTests.cpp'], \%codeMarkupIds,
 my @cloc_files = ();
 my $numCodeMarkups = $cfg->getProperty( 'numCodeMarkups', 0 );
 
-for ( my $i = 1 ; $i <= $numCodeMarkups ; $i++ ) {
+for my $i (1..$numCodeMarkups) {
 	my $cloc_file = $cfg->getProperty( "codeMarkup${i}.sourceFileName", undef );
-
 	push @cloc_files, $cloc_file if defined $cloc_file;
 }
 
 print "Passing these files to CLOC: @cloc_files\n"
-  if ( $debug > 2 );
+  if ( $debug);
 
 if (@cloc_files) {
 	my $cloc = new Web_CAT::CLOC;
 	$cloc->execute(@cloc_files);
 
-	for ( my $i = 1 ; $i <= $numCodeMarkups ; $i++ ) {
+	for my $i (1..$numCodeMarkups) {
 		my $cloc_file =
 		  $cfg->getProperty( "codeMarkup${i}.sourceFileName", undef );
 
@@ -1688,7 +1687,7 @@ if (@cloc_files) {
 
 # Script log
 # ----------
-if ( -f $scriptLog and stat($scriptLog)->size > 0 ) {
+if ( -f $scriptLog and -s $scriptLog ) {
 	$reportCount++;
 	$cfg->setProperty( "report${reportCount}.file",     $scriptLogRelative );
 	$cfg->setProperty( "report${reportCount}.mimeType", "text/plain" );
@@ -1714,7 +1713,6 @@ if ($debug) {
 	}
 }
 
-#-----------------------------------------------------------------------------
+#===========================================================================##
 exit(0);
-
-#-----------------------------------------------------------------------------
+##===========================================================================#
